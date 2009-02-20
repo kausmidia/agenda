@@ -1,0 +1,24 @@
+<div id="content">
+  <% if flash[:notice] %>
+    <p style="color:red; font-style:italic; text-align:right"><%= flash[:notice] %></p>
+  <% end %>
+  <div id="autenticacao">
+      <% form_tag :action => "login" do -%>
+        <ul>
+          <li>
+            <label for="login">Login:</label><br>
+            <%= text_field_tag "login", params[:login], :maxlength => 10 %>
+          </li>
+          <li>
+            <label for="password">Password:</label><br>
+            <%= password_field_tag "password", "", :maxlength => 10 %>
+          </li>
+          <li>
+            <%= submit_tag "Entrar" %>
+          </li>
+        </ul>
+
+      <% end -%>
+  </div>
+</div>
+<div id="footer">ANA COUTO BRANDING &AMP; DESIGN</div>

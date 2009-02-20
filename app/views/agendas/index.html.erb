@@ -1,0 +1,25 @@
+<div id="content">
+  <div id="top">
+    <div id="title">
+      <h3>Empresas cadastradas</h3>
+      <div id="search">        
+        <% form_tag :action => 'search' do -%>
+          <%= text_field_tag "search" %>&nbsp;
+          <%= submit_tag "Buscar" %>
+        <% end -%>
+      </div>
+    </div>
+    <div id="add">
+      <%= button_to 'Adicionar contato', :action => 'new' %>
+    </div>
+  </div>
+  <ul>
+    <% for agenda in @agendas %>
+    <li>
+      <div class="item"><%= link_to [h agenda.empresa], agenda %></div>
+      <div class="destroy"><%= link_to 'excluir', agenda, :confirm => 'Confirma exclusão do item?', :method => :delete %></div>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<div id="footer">ANA COUTO BRANDING &AMP; DESIGN - <%= link_to 'sair','/logout' %></div>

@@ -1,0 +1,19 @@
+<div id="content">
+  <div id="notice"><%= flash[:notice] %></div>
+  
+  <div id="new">
+    <div id="titulo">
+      <h2>Adicionar empresa</h2>
+    </div>
+    <div id="voltar">
+      <%= link_to '<< voltar', agendas_path %>
+    </div>
+    <div id="dados">
+
+    <%= render :partial => "formulario" %>
+
+    </div>
+  </div>
+
+</div>
+<div id="footer" class="formulario">ANA COUTO BRANDING &AMP; DESIGN - <a href="">sair</a></div>

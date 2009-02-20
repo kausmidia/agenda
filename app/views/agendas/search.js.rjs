@@ -1,0 +1,3 @@
+page.insert_html :bottom, :search, :partial => @search
+page[@search].visual_effect :highlight
+page[:search].reset

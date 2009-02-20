@@ -1,0 +1,29 @@
+<div id="content">
+  <div id="notice"><%= flash[:notice] %></div>
+
+  <div id="show">
+    <div id="titulo">
+    <h2><%=h @agenda.empresa %></h2>
+    <small>Cadastrado: <%= h @agenda.created_at.strftime("%d/%m/%Y") %> •
+    Atualizado: <%= h @agenda.updated_at.strftime("%d/%m/%Y") %></small>
+    </div>
+    <div id="voltar">
+      <%= link_to '<< voltar', agendas_path %>
+    </div>
+    <div id="dados">
+      <ul>
+        <li><span class="titulo">Tipo:</span> <br /><span class="info"><%=h @agenda.tipo %></span></li>
+        <li><span class="titulo">Cargo:</span> <br /><span class="info"><%=h @agenda.cargo %></span></li>
+        <li><span class="titulo">Telefone:</span> <br /><span class="info"><%=h @agenda.celular %></span></li>
+        <li><span class="titulo">E-mail:</span> <br /><span class="info"><%=h @agenda.email %></span></li>
+        <li class="endereco"><span class="titulo">Endereço:</span> <br /><span class="info"><%=h @agenda.endereco %></span></li>
+        <li><span class="titulo">Nascimento:</span> <br /><span class="info"><%=h @agenda.nascimento.strftime("%d/%m/%Y") %></span></li>
+        <li><span class="titulo">Contato:</span> <br /><span class="info"><%=h @agenda.contato %></span></li>
+        <li class="observacao"><span class="titulo">Observação:</span> <br /><span class="info"><%= h @agenda.observacao %></span></li>
+      </ul>
+    </div>
+  </div>
+  <input value="Editar" type="button" onclick="document.location.href='<%= edit_agenda_path(@agenda) %>'" />
+
+</div>
+<div id="footer">ANA COUTO BRANDING &AMP; DESIGN - <a href="">sair</a></div>

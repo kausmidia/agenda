@@ -1,0 +1,56 @@
+<div id="formulario">
+  <% form_for(@agenda) do |f| %>
+    <%= f.error_messages %>
+
+    <ul>
+      <li>
+        <%= f.label :empresa %><br />
+        <%= f.text_field :empresa %>
+      </li>
+
+      <li>
+        <%= f.label :tipo %><br />
+        <%= f.select :tipo, ["Parceiro","Cliente","Prospect"] %>
+      </li>
+
+      <li>
+        <%= f.label :cargo %><br />
+        <%= f.text_field :cargo %>
+      </li>
+
+      <li>
+        <%= f.label :'telefone/celular' %><br />
+        <%= f.text_field :celular %>
+      </li>
+
+      <li>
+        <%= f.label :email %><br />
+        <%= f.text_field :email %>
+      </li>
+
+      <li>
+        <%= f.label :endereco %><br />
+        <%= f.text_area :endereco, :rows => 3 %>
+      </li>
+
+      <li>
+      <%= f.label :nascimento %><br />
+      <%= f.date_select :nascimento, :order => [:day, :month, :year], :start_year => 1930 %>
+      </li>
+
+      <li>
+      <%= f.label :contato %><br />
+      <%= f.text_field :contato %>
+      </li>
+
+      <li>
+      <%= f.label :observacao %><br />
+      <%= f.text_area :observacao, :rows => 4 %>
+      </li>
+     
+    </ul>
+
+    <%= f.submit "Salvar" %>
+
+  <% end %>
+</div>

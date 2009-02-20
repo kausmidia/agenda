@@ -1,0 +1,28 @@
+<div id="content">  
+  <div id="top">
+    <div id="titulo" style="float:left; margin-bottom:10px;">
+      <h3>Resultados da busca: "<%= @searchkey %>"</h3>
+      <div id="search"></div>
+    </div>
+    <div id="voltar" style="float:right; font-size:12px; font-weight:bold;">
+      <a href="javascript:;" onclick="history.go(-1);">&lt;&lt;&nbsp;voltar</a>
+    </div>
+  </div>
+  <div>    
+  </div>
+  <ul>    
+    <% if @search.blank? %>
+      <li>
+        <p style="font-style:italic">Não foi encontrado nenhum dado.</p>
+      </li>
+    <% else %>
+      <% for agenda in @search %>
+        <li>
+          <div class="item"><%= link_to [h agenda.empresa], agenda %></div>
+          <div class="destroy"><%= link_to 'excluir', agenda, :confirm => 'Confirma exclusão do item?', :method => :delete %></div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+<div id="footer">ANA COUTO BRANDING &AMP; DESIGN - <%= link_to 'sair','/logout' %></div>

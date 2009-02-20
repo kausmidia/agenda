@@ -1,0 +1,8 @@
+production:
+  adapter: mysql
+  encoding: utf8
+  database: oslomedia
+  username: oslomedia
+  password: oslo2131
+  host: mysql01.locaweb.com.br
+  pool: 5

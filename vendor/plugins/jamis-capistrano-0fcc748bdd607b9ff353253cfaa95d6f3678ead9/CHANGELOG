@@ -1,0 +1,129 @@
+*0.11.0* *SVN*
+
+* Add Actor#current_task and simplify Task#servers
+
+* Add Actor#connect! method for working around lazy connection establishing
+
+* Make sure IO::TRUNC is specified for Net::SFTP uploads (#3510)
+
+* Add branch support to CVS [jeremy@hinegardner.org] (#3596)
+
+* Add bazaar-ng SCM module [Damien Merenne]
+
+* Add optional :svn_username and :svn_password variables
+
+* Allow Proc-valued variables to be set more conveniently (set(:foo) { "bar" })
+
+* Add perforce SCM module [Richard McMahon]
+
+* Add bazaar (v1) SCM module [Edd Dumbill] (#3533)
+
+* Fix stftime format string used in CVS module to be Windows-compatible (fixes #3383)
+
+* Add an better error when a task is run and no servers match the required conditions
+
+* Add default spinner and cold_deploy tasks, and spinner_user variable
+
+* Changed restart_via variable to (boolean) use_sudo
+
+* Only chmod when the revisions.log file is first created
+
+* Make UPPERCASE variables work
+
+* Added rails_env variable (defaults to production) for use by tasks that employ the RAILS_ENV environment variable
+
+* Added Actor.default_io_proc
+
+* Set :actor key on SSH channel instances
+
+
+*0.10.0* (January 2nd, 2006)
+
+* Handle ssh password prompts like "someone's password:"
+
+* Make CLI#echo available as a class method.
+
+* Add CLI#with_echo.
+
+* Make the default password prompt available as a class method.
+
+# Add documentation for the CLI class.
+
+* Add a sanity check to make sure the correct versions of Net::SSH and Net::SFTP are installed.
+
+* Added a cleanup task to remove unused releases from the deployment directory
+
+* Allow password to be reentered on sudo if it was entered incorrectly
+
+* Use && as the command separator for the checkouts, so that errors are caught early.
+
+* Ping each SSH connection every 1s during command processing so that long-running commands don't cause the connection to timeout.
+
+* Add a 0.01s sleep during the command loop so that the CPU doesn't go ballistic while ST is doing its thing.
+
+* Add :restart_via variable for specifying whether restart ought to use :sudo (default, use sudo)
+
+* Use SFTP for file transfers (if available).
+
+* Add an "update_current" task that will do an svn up on the current release
+
+* Use the :checkout variable to determine what operation to use for svn checkouts (instead of co, like "export").
+
+* The Rails rake tasks now load ST directly, instead of invoking it via system
+
+* Added ssh_options variable to configure the SSH connection parameters #2734 [jerrett@bravenet.com]
+
+* Require Net::SSH 1.0.5
+
+
+*0.9.0* (October 18th, 2005)
+
+* Use process reaper instead of custom reap script for restarting
+
+* Use -S switch to set variables before reading recipe files #2242
+
+* Have setup.rb create a switchtower.cmd file on Win32 platforms #2402
+
+* Add diff_from_last_deploy to the rails switchtower rakefile template
+
+* Add diff_from_last_deploy task (currently only works with subversion)
+
+* Add deploy_with_migrations task.
+
+* Make the migrate task more customizable.
+
+* If no password is given with the -p switch, prompt for password immediately.
+
+* Do not install a switchtower stub in the script directory. Assume the switchtower executable is in the path.
+
+* Remove trailing newlines from commands to prevent trailing backslash #2141
+
+* Default parameters work correctly with the generator #2218 [Scott Barron]
+
+* Attempt to require 'rubygems' explicitly when running the switchtower utility #2134
+
+* Make default tasks work only on app/db/web roles, so that additional roles may be created for boxes with specific needs without needing to (for instance) deploy the app to those boxes
+
+* Default the application name to "Application" when using --apply-to
+
+* Show the help screen instead of an error when no arguments are given
+
+* Make SwitchTower easier to invoke programmatically via SwitchTower::CLI
+
+* Specify the revision to release via the :revision variable (defaults to latest revision)
+
+* Allow variables to be set via the cli using the -s switch
+
+* Log checkouts to a "revisions.log" file
+
+* Changed behavior of checkout to use the timestamp as the release name, instead of the revision number
+
+* Added CVS module (very very experimental!)
+
+* Works with public keys now, for passwordless deployment
+
+* Subversion module recognizes the password prompt for HTTP authentication
+
+* Preserve +x on scripts when using darcs #1929 [Scott Barron]
+
+* When executing multiline commands, use a backslash to escape the newline
